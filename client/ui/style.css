@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+:root {
+    --main: #D9E7EB;
+    --bg-text: #B4CFD6;
+    --title-main: #102429;
+    --hover: #299bff;
+    --hl: #1486EB;
+}
+
+* {
+    user-select: none;
+}
+
+body {
+    /* overflow: hidden; */
+}
+
+/* CURSOR */
+#cursor {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+
+    width: 16px;
+    height: 16px;
+
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition: all 70ms;
+}
+
+#cursor.active {
+    box-shadow: 0 0 10px 5px var(--hover);
+    width: 10px;
+    height: 10px;
+    background-color: var(--hover);
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+#cursor-top, #cursor-bot {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cursor-corner {
+    width: 5px;
+    height: 5px;
+    background-color: var(--hover);
+}
+
+/* MENU */
+#menu {
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 51%;
+
+    display: none;
+    transform: translateY(-10.5%);
+}
+
+#menu.active {
+    display: block;
+}
+
+#menu-title {
+    overflow: hidden;
+    color: var(--main);
+    font-family: Anton;
+    text-transform: uppercase;
+    font-size: 2vw;
+}
+
+#menu-title-text {
+    transform: translateY(100%);
+}
+
+#menu-title-text.active {
+    transform: translateY(0);
+    transition: transform 300ms;
+}
+
+#menu-list {
+    width: 110%;
+    max-height: 12vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#menu-list::-webkit-scrollbar {
+    display: none;
+}
+
+.menu-item {
+    transform: translateX(-50%);
+
+    width: fit-content;
+    background-color: var(--main);
+
+    padding: 0.3vw 1vw 0.3vw 0.3vw;
+    margin-bottom: 0.35vw;
+
+    font-family: Montserrat;
+    color: var(--title-main);
+    font-weight: 600;
+    white-space: nowrap;
+
+    opacity: 0;
+    cursor: pointer;
+}
+
+.menu-item.active {
+    opacity: 0.9;
+    transform: translateX(0);
+    transition: transform 200ms, opacity 200ms;
+}
+
+.menu-item.active:hover {
+    opacity: 1;
+    transform: translate(10%);
+}
+
+strong {
+    color: var(--hl);
+    pointer-events: none;
+}
+
+#menu-line {
+    width: 0%;
+    height: 1px;
+    border-top: 1px solid var(--main);
+    transition: width 200ms;
+    transform: translateY(-250%);
+}
+
+#menu-line.active {
+    width: 100%;
+}
