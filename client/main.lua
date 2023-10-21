@@ -88,7 +88,7 @@ function OnClick()
             ent_options = options["player"]
         else
             if options[GetEntityType(target)] then ent_options = MergeDict(ent_options, options[GetEntityType(target)]) end
-            -- if GetEntityType(target) == 1 and not IsEntityPositionFrozen(target) then ent_options["turfwars:SellDrug"] = {desc = "Sell Drugs"} end
+            if EXP_TURFWARS and (GetEntityType(target) == 1 and not IsEntityPositionFrozen(target)) then ent_options["exp_turfwars:SellDrug"] = {desc = "Sell Drugs"} end
             if reg_models[GetEntityModel(target)] then ent_options = MergeDict(ent_options, reg_models[GetEntityModel(target)]) end
             if reg_entities[target] then ent_options = MergeDict(ent_options, reg_entities[target]) end
         end
