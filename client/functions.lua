@@ -33,6 +33,9 @@ function RotationToDirection(rotation)
     return direction
 end
 
+---@param dict1 table
+---@param dict2 table
+---@return table merged_dict
 function MergeDict(dict1, dict2)
     local new_dict = {}
     for k, v in pairs(dict1 or {}) do
@@ -45,6 +48,8 @@ function MergeDict(dict1, dict2)
     return new_dict
 end
 
+---@param sprite table Must contain the followings: DICT, NAME, WIDTH, HEIGHT, ROT, COLOR_R, COLOR_G, COLOR_B, COLOR_A
+---@param coords vector3
 function DrawSpriteAtCoords(sprite, coords)
     SetDrawOrigin(coords.x, coords.y, coords.z)
     DrawSprite(sprite.DICT, sprite.NAME, 0, 0, sprite.WIDTH, sprite.HEIGHT, sprite.ROT, sprite.COLOR_R, sprite.COLOR_G, sprite.COLOR_B, sprite.COLOR_A)

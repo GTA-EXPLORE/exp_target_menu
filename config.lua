@@ -3,9 +3,7 @@ LANGUAGE = "en"
 DEFAULTKEY_CURSOR = "LMENU"
 RANGE = 1.5
 
-EXP_TURFWARS = false -- ENABLE IF exp_turfwars IS INSTALLED
-
-CARWASH_INTERVAL = 2000 -- 2s
+PEDESTRIAN = true -- Toggles interaction on pedestrians
 
 ENTITY_SPRITE = {
     DICT = "mpfclone_common",

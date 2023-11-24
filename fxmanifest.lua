@@ -1,4 +1,4 @@
-fx_version "adamant"
+fx_version "cerulean"
 game "gta5"
 lua54 'yes'
 
@@ -15,9 +15,4 @@ client_scripts {
 
 files {
   "client/ui/**/*"
-}
-
-escrow_ignore {
-    "config.lua",
-    "locales/*"
 }

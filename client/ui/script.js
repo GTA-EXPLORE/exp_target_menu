@@ -53,7 +53,8 @@ executes["OPEN_MENU"] = function(data) {
         
         item.click(function() {
             $.post("http://exp_target_menu/Trigger", JSON.stringify({
-                event: key
+                event: key,
+                data: value
             }))
             if (value.stay != true) CloseUI()
         })
