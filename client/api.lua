@@ -1,5 +1,5 @@
 function AddTypeMenuItem(options)
-    options[TYPE_TO_OPTION[options.type]][options.event] = {
+    Options[TYPE_TO_OPTION[options.type]][options.event] = {
         desc = options.desc or _("no_desc"),
         stay = options.stay,
         arguments = options.arguments
@@ -8,7 +8,7 @@ end
 exports("AddTypeMenuItem", AddTypeMenuItem)
 
 function RemoveTypeMenuItem(options)
-    options[TYPE_TO_OPTION[options.type]][options.event] = nil
+    Options[TYPE_TO_OPTION[options.type]][options.event] = nil
 end
 exports("RemoveTypeMenuItem", RemoveTypeMenuItem)
 

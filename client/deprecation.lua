@@ -3,8 +3,8 @@ RegisterNetEvent("exp_target_menu:AddTypeMenuItem", function(event, type, desc, 
         event = event,
         type = type,
         desc = desc,
-        stay = stay,
-        arguments = arguments
+        stay = stay or false,
+        arguments = arguments or {}
     })
 end)
 
