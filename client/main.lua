@@ -4,7 +4,7 @@ show_cursor, paused, interacting, cursor_active = false, false, false, false
 reg_entities, reg_models, reg_names, reg_model_names, reg_model_offsets = {}, {}, {}, {}, {}
 TYPE_TO_OPTION = {all = 0, ped = 1, vehicle = 2, object = 3, player = "player", in_vehicle = "in_vehicle"}
 
-options = {
+Options = {
     [0] = { -- all
     },
     [1] = { -- peds
@@ -19,7 +19,7 @@ options = {
     }
 }
 
-entity_options = options[0]
+entity_options = Options[0]
 
 Citizen.CreateThread(function()
     RequestStreamedTextureDict("mpfclone_common")
@@ -75,19 +75,19 @@ function OnClick()
     if not cursor_active then
         if not DoesEntityExist(target) then
             if IsPedInAnyVehicle(player.Ped) then
-                ent_options = options["in_vehicle"]
+                ent_options = Options["in_vehicle"]
                 name = _("entity_type_name_in_vehicle")
             else
-                ent_options = options[0]
+                ent_options = Options[0]
             end
         else
             return
         end
     else
         if IsPedAPlayer(target) then
-            ent_options = options["player"]
+            ent_options = Options["player"]
         else
-            if options[GetEntityType(target)] then ent_options = MergeDict(ent_options, options[GetEntityType(target)]) end
+            if Options[GetEntityType(target)] then ent_options = MergeDict(ent_options, Options[GetEntityType(target)]) end
             if GetEntityType(target) == 1 and GetResourceState("exp_turfwars") == "started" and not IsEntityPositionFrozen(target) then ent_options["exp_turfwars:SellDrug"] = {desc = "Sell Drugs"} end
             if reg_models[GetEntityModel(target)] then ent_options = MergeDict(ent_options, reg_models[GetEntityModel(target)]) end
             if reg_entities[target] then ent_options = MergeDict(ent_options, reg_entities[target]) end
