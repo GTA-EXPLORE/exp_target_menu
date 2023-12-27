@@ -3,7 +3,7 @@ LANGUAGE = "en"
 DEFAULTKEY_CURSOR = "LMENU"
 RANGE = 1.5
 
-PEDESTRIAN = true -- Toggles interaction on pedestrians
+PEDESTRIANS = true -- Toggles interaction on pedestrians
 
 ENTITY_SPRITE = {
     DICT = "mpfclone_common",
