@@ -70,25 +70,22 @@ RegisterKeyMapping('+track', _("main_menu"), "keyboard", DEFAULTKEY_CURSOR)
 function OnClick()
     local target = rc_entity
     local ent_options = {}
-    local name = reg_names[target] or reg_model_names[GetEntityModel(target)] or _("entity_type_name_"..GetEntityType(target))
+    local ent_type = GetEntityType(target)
+    local name = ent_type > 0 and (reg_names[target] or reg_model_names[GetEntityModel(target)] or _("entity_type_name_"..ent_type)) or _("entity_type_name_"..ent_type)
 
     if not cursor_active then
-        if not DoesEntityExist(target) then
-            if IsPedInAnyVehicle(player.Ped) then
-                ent_options = Options["in_vehicle"]
-                name = _("entity_type_name_in_vehicle")
-            else
-                ent_options = Options[0]
-            end
+        if IsPedInAnyVehicle(player.Ped) then
+            ent_options = Options["in_vehicle"]
+            name = _("entity_type_name_in_vehicle")
         else
-            return
+            ent_options = Options[0]
         end
     else
         if IsPedAPlayer(target) then
             ent_options = Options["player"]
         else
-            if Options[GetEntityType(target)] then ent_options = MergeDict(ent_options, Options[GetEntityType(target)]) end
-            if GetEntityType(target) == 1 and GetResourceState("exp_turfwars") == "started" and not IsEntityPositionFrozen(target) then ent_options["exp_turfwars:SellDrug"] = {desc = "Sell Drugs"} end
+            if Options[ent_type] then ent_options = MergeDict(ent_options, Options[ent_type]) end
+            if ent_type == 1 and GetResourceState("exp_turfwars") == "started" and not IsEntityPositionFrozen(target) then ent_options["exp_turfwars:SellDrug"] = {desc = "Sell Drugs"} end
             if reg_models[GetEntityModel(target)] then ent_options = MergeDict(ent_options, reg_models[GetEntityModel(target)]) end
             if reg_entities[target] then ent_options = MergeDict(ent_options, reg_entities[target]) end
         end
