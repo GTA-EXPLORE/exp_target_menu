@@ -1,3 +1,4 @@
+# :warning: No Longer Maintained :warning:
 # EXPLORE Target Menu
 Introducing the ultimate all-in-one global menu for your FiveM server! With this feature-rich Target Menu, you have the power to create custom interactions for **NPCs**, **vehicles** (both inside and outside), **objects**, **players**, and even **yourself**. Tailor your experience further by adding interactions to specific **entities** and **models**, complete with the option to **name** them. Plus, enjoy the flexibility of adjusting the **indicator's position**, skillfully offset from the origin using models. Customize your server like never before with this **immersive** script.
 
